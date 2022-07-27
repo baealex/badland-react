@@ -1,8 +1,5 @@
 import Store from 'badland';
-import {
-    useEffect,
-    useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 
 export function useStore<T>(store: Store<T>): [T, <K extends keyof T>(nextState: ((prevState: T) => Pick<T, K>) | Pick<T, K>) => Promise<T>] {
     const [ state, setState ] = useState<T>(store.state);
